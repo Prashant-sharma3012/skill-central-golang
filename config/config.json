@@ -1,0 +1,26 @@
+{
+    "ServerSettings": {
+        "Domain": "cps.com",
+        "Hostname": "127.0.0.1",
+        "UseHTTP": true,
+        "UseHTTPS": false,
+        "HTTPPort": 3000,
+        "HTTPSPort": 443,
+        "CertFile": "tls/server.crt",
+        "KeyFile": "tls/server.key",
+        "ConfigRefresh": 3000000000,
+        "ReadTimeout": 5000000000,
+        "WriteTimeout": 10000000000,
+        "IdleTimeout": 1000000000
+    },
+    "SqlSettings": {
+        "DriverName": "postgres",
+        "DatabaseURL": "postgresql://postgres@localhost:5432/dev_erpx?password=admin&sslmode=disable",
+        "MaxOpenConns": 100,
+        "MaxIdleConns": 2
+    },
+    "LogSettings": {
+        "LogLevel": "info",
+        "EnableLog": true
+    }
+}
