@@ -21,10 +21,12 @@ func GetHandler() http.Handler {
 	return router
 }
 
-func (r *Router) InitRoutes(srv *server.Server) {
+func InitRoutes(r *mux.Router, srv *server.Server) {
 	api := &API{
-		Srv:        srv,
-		BaseRouter: r,
+		Srv: srv,
+		BaseRouter: &Router{
+			Root: r,
+		},
 	}
 
 	api.initEmpolyee()
