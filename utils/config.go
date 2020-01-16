@@ -10,7 +10,7 @@ import (
 func LoadConfig() *model.Config {
 	config := &model.Config{}
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../config")
+	viper.AddConfigPath("./config")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Panicf("Fatal error config file: %s \n", err)

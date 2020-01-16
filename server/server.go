@@ -1,6 +1,7 @@
 package server
 
 import (
+	"github.com/gorilla/mux"
 	"fmt"
 	"net/http"
 
@@ -10,7 +11,7 @@ import (
 
 // this is wher everything connects
 type Server struct {
-	Router http.Handler
+	Router *mux.Router
 	Config *model.Config
 	Log    *logrus.Logger
 }
@@ -19,7 +20,7 @@ type Server struct {
 type ServerConfig struct {
 	Config  *model.Config
 	Log     *logrus.Logger
-	Handler http.Handler
+	Handler *mux.Router
 }
 
 func BootstrapServer(config *ServerConfig) *Server {

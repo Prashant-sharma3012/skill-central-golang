@@ -30,7 +30,7 @@ func main() {
 	srv := server.BootstrapServer(serverConfig)
 
 	fmt.Println("Initializing Routes")
-	handler.InitRoutes(handler, srv)
+	api.InitRoutes(srv)
 
 	fmt.Println("Staring Server")
 	srv.Start()
