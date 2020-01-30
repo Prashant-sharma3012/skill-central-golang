@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/sirupsen/logrus"
 
 	"github.com/skill-central-golang/api"
@@ -11,27 +9,30 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting Server")
 
-	fmt.Println("Getting Handler")
+	logger := logrus.New()
+
+	logger.Info("Starting Server")
+
+	logger.Info("Getting Handler")
 	handler := api.GetHandler()
 
-	fmt.Println("Loading Config")
+	logger.Info("Loading Config")
 	config := utils.LoadConfig()
 
 	// Creating Logger
 	serverConfig := &server.ServerConfig{
 		Config:  config,
-		Log:     logrus.New(),
+		Log:     logger,
 		Handler: handler,
 	}
 
-	fmt.Println("Initializing Server")
+	logger.Info("Initializing Server")
 	srv := server.BootstrapServer(serverConfig)
 
-	fmt.Println("Initializing Routes")
+	logger.Info("Initializing Routes")
 	api.InitRoutes(srv)
 
-	fmt.Println("Staring Server")
+	logger.Info("Staring Server")
 	srv.Start()
 }
